@@ -1,0 +1,1 @@
+document.getElementById('msg').textContent = 'CSS and JS loaded successfully from Node.js!';
