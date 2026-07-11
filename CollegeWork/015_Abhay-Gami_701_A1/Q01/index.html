@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Q01</title>
+</head>
+
+<body>
+    <h1>Node.js Assignment 1</h1>
+    <button id="btn">Get Hello Message</button>
+    <h2 id="response-text"></h2>
+
+    <script>
+        const button = document.getElementById('btn');
+        const responseText = document.getElementById('response-text');
+
+        button.addEventListener('click', () => {
+            fetch('/gethello')
+                .then(res => res.text())
+                .then(data => {
+                    responseText.textContent = data;
+                })
+                .catch(err => console.error('Error fetching data:', err));
+        });
+    </script>
+</body>
+
+</html>
