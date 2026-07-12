@@ -1,0 +1,13 @@
+{
+  "name": "q09",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Call and demonstrate useful functions of the fs module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

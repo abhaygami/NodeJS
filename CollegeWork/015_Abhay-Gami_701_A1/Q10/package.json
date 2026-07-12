@@ -1,0 +1,12 @@
+{
+  "name": "q10",
+  "version": "1.0.0",
+  "description": "Showcase global objects and read command line arguments in Node.js CommonJS",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

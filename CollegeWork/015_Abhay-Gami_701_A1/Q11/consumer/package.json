@@ -1,0 +1,13 @@
+{
+  "name": "consumer",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "App consuming the local abhaygami-cli-banner package",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "abhaygami-cli-banner": "file:../abhaygami-cli-banner"
+  }
+}

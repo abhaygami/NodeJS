@@ -1,0 +1,20 @@
+{
+    "id": 101,
+    "name": "Abhay Gami",
+    "age": 20,
+    "isStudent": true,
+    "course": "MScIT",
+    "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Node.js"
+    ],
+    "address": {
+        "city": "Surat",
+        "state": "Gujarat",
+        "country": "India",
+        "pincode": "395006"
+    }
+}

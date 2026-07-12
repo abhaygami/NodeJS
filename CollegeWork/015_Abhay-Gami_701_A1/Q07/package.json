@@ -1,0 +1,13 @@
+{
+  "name": "q07",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Node web server with /google route fetching google page",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

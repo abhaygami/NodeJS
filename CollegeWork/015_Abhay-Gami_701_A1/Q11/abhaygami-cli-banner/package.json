@@ -1,0 +1,16 @@
+{
+  "name": "abhaygami-cli-banner",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A lightweight and customizable CLI banner generator to format console logs with styled borders.",
+  "main": "index.js",
+  "keywords": [
+    "cli",
+    "banner",
+    "logger",
+    "border",
+    "format"
+  ],
+  "author": "Abhay Gami",
+  "license": "MIT"
+}

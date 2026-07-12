@@ -1,0 +1,17 @@
+{
+  "name": "q08",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Demonstrate predefined and user defined npm scripts in package.json",
+  "main": "server.js",
+  "scripts": {
+    "server": "node server.js",
+    "test": "node test.js",
+    "dev": "node --watch server.js",
+    "info": "echo 'Project Info: Q08 NodeJS custom scripts demonstration'",
+    "greet": "echo 'Hello from your custom NodeJS script!'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
