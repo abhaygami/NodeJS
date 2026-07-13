@@ -1,31 +1,33 @@
 import fs from 'fs';
 import path from 'path';
-import zlib from 'zlib';
+import { ZipArchive } from 'archiver';
 
-const publicDir = "./public";
+const publicDir = './public';
+const outputPath = path.join(process.cwd(), 'public.zip');
 
-fs.readdir(publicDir, (err, files) => {
-    if (err) {
-        console.error("Error reading directory:", err);
-        return;
-    }
+// Create a file stream to write the final zip file to
+const output = fs.createWriteStream(outputPath);
 
-    files.forEach(file => {
-        const filePath = path.join(publicDir, file);
-        const gzipFilePath = `${filePath}.gz`;
-
-        const readStream = fs.createReadStream(filePath);
-        const writeStream = fs.createWriteStream(gzipFilePath);
-        const gzip = zlib.createGzip();
-
-        readStream.pipe(gzip).pipe(writeStream);
-
-        writeStream.on('finish', () => {
-            console.log(`Compressed ${file} to ${gzipFilePath}`);
-        });
-
-        writeStream.on('error', (err) => {
-            console.error(`Error compressing ${file}:`, err);
-        });
-    });
+// Instantiate ZipArchive 
+const archive = new ZipArchive({
+    zlib: { level: 9 } // Maximum compression level
 });
+
+// Listen for completion
+output.on('close', () => {
+    console.log(`Successfully compressed '${publicDir}' into '${outputPath}' (${archive.pointer()} total bytes)`);
+});
+
+// Catch errors
+archive.on('error', (err) => {
+    console.error('Error compressing folder:', err);
+});
+
+// Pipe archive data to the file
+archive.pipe(output);
+
+// Append directory contents to the root of the zip archive
+archive.directory(publicDir, false);
+
+// Finalize and save the zip file
+archive.finalize();
