@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q01</title>
+
+    <!-- 1. React Core Library -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <!-- 2. ReactDOM for Web Rendering -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- 3. Babel Standalone to compile JSX in the browser -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background-color: #f4f4f9;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        // Component 1: Header Component
+        const Header = () => {
+            return (
+                <header className="card">
+                    <h1>Welcome to Question 1</h1>
+                    <p>Created 2 components using CDN approach!</p>
+                </header>
+            );
+        }
+
+        // Component 2: User Profile Component
+        const UserProfile = () => {
+            return (
+                <div className="card">
+                    <h2>User Profile</h2>
+                    <p><strong>Name:</strong> Abhay Gami</p>
+                    <p><strong>Role:</strong> Frontend Developer</p>
+                </div>
+            );
+        }
+
+        // Main App Component wrapping both components
+        const App = () => {
+            return (
+                <div>
+                    <Header />
+                    <UserProfile />
+                </div>
+            );
+        }
+
+        // Render App to the DOM
+        const rootElement = document.getElementById('root');
+        const root = ReactDOM.createRoot(rootElement);
+        root.render(<App />);
+
+    </script>
+</body>
+
+</html>
