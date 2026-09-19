@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form Registration</title>
+</head>
+<body>
+    <center><h1>Form Registration</h1></center>
+    <form action="/register" method="post">
+        <label for="username">Username</label>
+        <input type="text" name="username" value="<%= data.username || '' %>">
+        <div style="color: red;">
+            <% if(errors && errors.find(e => e.path === "username")) { %>
+                <%= errors.find(e => e.path === "username").msg %>
+            <% } %>
+        </div>
+        <br>
+        <label for="email">Email</label>
+        <input type="text" name="email" value="<%= data.email || '' %>">
+        <div style="color: red;">
+            <% if(errors && errors.find(e => e.path === "email")) { %>
+                <%= errors.find(e => e.path === "email").msg %>
+            <% } %>
+        </div>
+        <br>
+        <label for="password">Password</label>
+        <input type="password" name="password" value="<%= data.password || '' %>">
+        <div style="color: red;">
+            <% if(errors && errors.find(e => e.path === "password")) { %>
+                <%= errors.find(e => e.path === "password").msg %>
+            <% } %>
+        </div>
+        <br>
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" name="confirm_password" value="<%= data.confirm_password || '' %>">
+        <div style="color: red;">
+            <% if(errors && errors.find(e => e.path === "confirm_password")) { %>
+                <%= errors.find(e => e.path === "confirm_password").msg %>
+            <% } %>
+        </div>
+        <br>
+        Select Gender
+        <input type="radio" name="gender" value="Male" <% if(data.gender == "Male") { %>checked <% } %>>Male
+        <input type="radio" name="gender" value="Female" <% if(data.gender == "Female") { %>checked <% } %>>Female
+        <div style="color: red;">
+            <% if(errors && errors.find(e => e.path === "gender")) { %>
+                <%= errors.find(e => e.path === "gender").msg %>
+            <% } %>
+        </div>
+        <br>
+        Select Hobbies
+        <input type="checkbox" name="hobbies" value="cricket" <% if(data.hobbies && data.hobbies.includes("cricket")) { %>checked <% } %>>Cricket
+        <input type="checkbox" name="hobbies" value="football" <% if(data.hobbies && data.hobbies.includes("football")) { %>checked <% } %>>Football
+        <input type="checkbox" name="hobbies" value="swimming" <% if(data.hobbies && data.hobbies.includes("swimming")) { %>checked <% } %>>Swimming
+        <div style="color: red;">
+            <% if(errors && errors.find(e => e.path === "hobbies")) { %>
+                <%= errors.find(e => e.path === "hobbies").msg %>
+            <% } %>
+        </div>
+        <br>
+
+        Select City
+        <select name="city">
+            <option value="" <% if(data.city == "") { %>selected <% } %> >Select City</option>
+            <option value="Ahmedabad" <% if(data.city == "Ahmedabad") { %>selected <% } %> >Ahmedabad</option>
+            <option value="Surat" <% if(data.city == "Surat") { %>selected <% } %> >Surat</option>
+            <option value="Vadodara" <% if(data.city == "Vadodara") { %>selected <% } %> >Vadodara</option>
+            <option value="Rajkot" <% if(data.city == "Rajkot") { %>selected <% } %> >Rajkot</option>
+        </select>
+        <div style="color: red;">
+            <% if(errors && errors.find(e => e.path === "city")) { %>
+                <%= errors.find(e => e.path === "city").msg %>
+            <% } %>
+        </div>
+        <br>
+        <button type="submit">Register</button>
+            <% if(Object.keys(data).length != 0) { %>
+                <% if(status) { %>
+                    <div style="color: green;">
+                        <p>Registration Successful</p>
+                    </div>
+                <% } else { %>
+                    <div style="color: red;">
+                        <p>Registration Failed</p>
+                    </div>
+                <% } %>
+            <% } %>
+    </form>
+</body>
+</html>
