@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview</title>
+</head>
+
+<body>
+    <center>
+        <h1>Uploaded Images</h1>
+    </center>
+    <br><br>
+
+    <h2>Profile Picture</h2>
+    <img src="/uploads/<%= files.profilePicture[0].filename %>" alt="Profile Picture" width="550px">
+    <a href="/uploads/<%= files.profilePicture[0].filename %>" download="<% files.profilePicture[0].originalname %>">Download</a><br><br>
+
+    <h2>Other Pictures</h2>
+    <% files.otherPictures.forEach((photo)=> { %>
+        <img src="/uploads/<%= photo.filename %>" alt="other photos" width="350px">
+        <a href="/uploads/<%= photo.filename %>" download="<% photo.originalname %>">Download</a><br>
+        <% }) %>
+</body>
+
+</html>
