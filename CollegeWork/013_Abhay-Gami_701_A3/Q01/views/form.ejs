@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Registration</title>
+</head>
+<body>
+    <center><h1>Registration Form</h1></center>
+    <form action="/register" method="post" enctype="multipart/form-data">
+        <label for="name">Name</label>
+        <input type="text" name="name" value="<%= formData.name || '' %>">
+        <span style="color: red;">
+            <% if(errors && errors.find(e => e.path === "name")) { %>
+                <%= errors.find(e => e.path === "name").msg %>
+            <% } %>
+        </span>
+        <br>
+
+        <label for="email">Email</label>
+        <input type="text" name="email" value="<%= formData.email || '' %>">
+        <span style="color: red;">
+            <% if(errors && errors.find(e => e.path === "email")) { %>
+                <%= errors.find(e => e.path === "email").msg %>
+            <% } %>
+        </span>
+        <br>
+
+        <label for="password">Password</label>
+        <input type="text" name="password" value="<%= formData.password || '' %>">
+        <span style="color: red;">
+            <% if(errors && errors.find(e => e.path === "password")) { %>
+                <%= errors.find(e => e.path === "password").msg %>
+            <% } %>
+        </span>
+        <br>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="text" name="confirmPassword" value="<%= formData.confirmPassword || '' %>">
+        <span style="color: red;">
+            <% if(errors && errors.find(e => e.path === "confirmPassword")) { %>
+                <%= errors.find(e => e.path === "confirmPassword").msg %>
+            <% } %>
+        </span>
+        <br>
+
+        <label for="gender">Select Gender: </label>
+        <input type="radio" name="gender" value="male" <%= formData.gender === "male" ? "checked" : "" %>>
+        <label for="male">Male</label>
+        <input type="radio" name="gender" value="female" <%= formData.gender === "female" ? "checked" : "" %>>
+        <label for="female">Female</label>
+        <span style="color: red;">
+            <% if(errors && errors.find(e => e.path === "gender")) { %>
+                <%= errors.find(e => e.path === "gender").msg %>
+            <% } %>
+        </span>
+        <br>
+
+        <label for="hobbies">Select Hobbies: </label>
+        <input type="checkbox" name="hobbies" value="sports" <% if(formData.hobbies && formData.hobbies.includes("sports")) { %>checked <% } %>> Sports
+        <input type="checkbox" name="hobbies" value="travelling" <% if(formData.hobbies && formData.hobbies.includes("travelling")) { %>checked <% } %>> Travelling
+        <input type="checkbox" name="hobbies" value="coding" <% if(formData.hobbies && formData.hobbies.includes("coding")) { %>checked <% } %>> Coding
+        <input type="checkbox" name="hobbies" value="gaming" <% if(formData.hobbies && formData.hobbies.includes("gaming")) { %>checked <% } %>> Gaming
+        <span style="color: red;">
+            <% if(errors && errors.find(e => e.path === "hobbies")) { %>
+                <%= errors.find(e => e.path === "hobbies").msg %>
+            <% } %>
+        </span>
+        <br>
+
+        <label for="profilePicture">Select Profile Picture</label>
+        <input type="file" name="profilePicture">
+        <span style="color: red;">
+            <% if(errors && errors.find(e => e.path === "profilePicture")) { %>
+                <%= errors.find(e => e.path === "profilePicture").msg %>
+            <% } %>
+        </span>
+        <br>
+
+        <label for="otherPictures">Select Other Pictures</label>
+        <input type="file" name="otherPictures" multiple>
+        <span style="color: red;">
+            <% if(errors && errors.find(e => e.path === "otherPictures")) { %>
+                <%= errors.find(e => e.path === "otherPictures").msg %>
+            <% } %>
+        </span>
+        <br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

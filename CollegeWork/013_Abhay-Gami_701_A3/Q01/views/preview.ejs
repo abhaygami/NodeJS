@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview</title>
+</head>
+<body>
+    <center><h1>Preview</h1></center>
+    <table border="2">
+        <tr>
+            <th>Name</th>
+            <td><%= formData.name %></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><%= formData.email %></td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td><%= formData.gender %></td>
+        </tr>
+        <tr>
+            <th>Hobbies</th>
+            <td><%= formData.hobbies %></td>
+        </tr>
+        <tr>
+            <th>Profile Picture</th>
+            <td>
+                <img src="/uploads/<%= files.profilePicture[0].filename %>" alt="Profile Picture" width="350px" >
+                <a href="/uploads/<%= files.profilePicture[0].filename %>" download="<% files.profilePicture[0].originalname %>">Download</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Other Pictures</th>
+            <td>
+                <% files.otherPictures.forEach((photo)=> { %>
+                    <img src="/uploads/<%= photo.filename %>" alt="other photos" width="350px">
+                    <a href="/uploads/<%= photo.filename %>" download="<% photo.originalname %>">Download</a><br>
+                <% }) %>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
