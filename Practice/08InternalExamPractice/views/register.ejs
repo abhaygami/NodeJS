@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+
+<body>
+    <center>
+        <h1>Registration</h1>
+    </center>
+    <form action="/register" method="post">
+        Enter Rollno: <input type="text" name="Rollno">
+        <span style="color: red;">
+            <% if(errors && errors.find(e=> e.path == "Rollno")) { %>
+                <%= errors.find(e=> e.path == "Rollno").msg %>
+            <% } %>
+        </span>
+        <br>
+        Enter Name: <input type="text" name="Name">
+        <span style="color: red;">
+            <% if(errors && errors.find(e=> e.path == "Name")) { %>
+                <%= errors.find(e=> e.path == "Name").msg %>
+            <% } %>
+        </span>
+        <br>
+        Enter Email: <input type="text" name="Email">
+        <span style="color: red;">
+            <% if(errors && errors.find(e=> e.path == "Email")) { %>
+                <%= errors.find(e=> e.path == "Email").msg %>
+            <% } %>
+        </span>
+        <br>
+        Enter Password: <input type="text" name="Password">
+        <span style="color: red;">
+            <% if(errors && errors.find(e=> e.path == "Password")) { %>
+                <%= errors.find(e=> e.path == "Password").msg %>
+            <% } %>
+        </span>
+        <br>
+        Enter Age: <input type="text" name="Age">
+        <span style="color: red;">
+            <% if(errors && errors.find(e=> e.path == "Age")) { %>
+                <%= errors.find(e=> e.path == "Age").msg %>
+            <% } %>
+        </span>
+        <br>
+        <input type="submit" value="Register">
+    </form>
+</body>
+
+</html>
